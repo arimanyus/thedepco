@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arimanyus.github.io/thedepco/sitemap.xml
+Sitemap: https://www.thedeploymentcompany.in/sitemap.xml
