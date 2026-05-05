@@ -33,6 +33,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Catch misconfiguration early: Pages must publish `dist/` from this
+      # workflow, not the repo root (root still has `/src/main.tsx` for dev).
+      - name: Verify production bundle
+        run: |
+          test -s dist/index.html
+          ls dist/assets/*.js dist/assets/*.css
+          grep -E 'src="/assets/[^"]+\.js"' dist/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
